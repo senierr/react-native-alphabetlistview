@@ -4,7 +4,7 @@
 import React, { Component,Fragment } from 'react';
 import PropTypes from 'prop-types';
 import ReactNative, {
-  ListView,
+  FlatList,
   StyleSheet,
   ActivityIndicator,
   View,
@@ -24,7 +24,7 @@ export default class SelectableSectionsListView extends Component {
     super(props, context);
 
     this.state = {
-      dataSource: new ListView.DataSource({
+      dataSource: new FlatList.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
         sectionHeaderHasChanged: (prev, next) => prev !== next
       }),
@@ -278,7 +278,7 @@ export default class SelectableSectionsListView extends Component {
               </View>
               ):(
               <Fragment>
-                  <ListView
+                  <FlatList
                       ref="listview"
                       {...props}
                       initialListSize={initialListSize}
